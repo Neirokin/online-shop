@@ -12,9 +12,12 @@ import DefaultLayoutHeader from './components/DefaultLayoutHeader.vue'
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/style/variables.scss';
+
 .layout {
   .content {
     padding: 40px;
+    background-color: $color-secondary;
   }
 }
 </style>
