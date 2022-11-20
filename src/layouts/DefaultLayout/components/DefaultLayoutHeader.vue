@@ -5,7 +5,9 @@
     <div class="logo">
       <h1 class="logo__text">_ONLINE / SHOP_</h1>
     </div>
-    <div class="body"></div>
+    <div class="body">
+      <slot />
+    </div>
   </div>
 </template>
 

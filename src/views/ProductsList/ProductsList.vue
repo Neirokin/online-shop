@@ -1,11 +1,25 @@
 <script setup lang="ts">
 import { ProductsCard } from '@/components'
+import { onMounted } from 'vue'
+import { useProductsStore } from '@/stores/productsStore'
+
+const productsStore = useProductsStore()
+
+onMounted(() => {
+  productsStore.getProducts()
+})
 </script>
 
 <template>
   <div class="products">
     <div class="products-list">
-      <ProductsCard v-for="n in 10" :key="n" />
+      <ProductsCard
+        v-for="product in productsStore.products"
+        :key="product.id"
+        :title="product.title"
+        :description="product.description"
+        :image="product.image"
+      />
     </div>
   </div>
 </template>

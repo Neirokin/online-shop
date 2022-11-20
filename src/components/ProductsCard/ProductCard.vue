@@ -1,13 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+interface ProductCardProps {
+  title: string
+  description: string
+  price: number
+  image: string
+}
+defineProps<ProductCardProps>()
+</script>
 
 <template>
   <div class="card">
     <div class="card-header">
-      <div class="card-header__image" />
+      <div
+        class="card-header__image"
+        :style="{ backgroundImage: `url(${image})` }"
+      />
     </div>
     <div class="card-body">
-      <h3 class="card-body__title">Title</h3>
-      <p class="card-body__description">Description</p>
+      <h3 class="card-body__title">{{ title }}</h3>
+      <p class="card-body__description">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -16,15 +27,15 @@
 @import '@/assets/style/variables.scss';
 
 .card {
-  border: 1px solid black;
-  background-color: $color-gray-100;
+  border: 1px solid $color-gray-200;
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
 
   .card-header {
-    border-bottom: 1px solid black;
-    height: 150px;
+    border-bottom: 1px solid $color-gray-200;
+    height: 250px;
 
     &__image {
-      background-image: url('https://via.placeholder.com/150');
       background-position: center;
       width: 100%;
       height: 100%;
@@ -37,11 +48,14 @@
     padding: 8px;
 
     &__title {
-      font-size: 24px;
+      font-size: $font-size-large;
+      font-family: $font-josefin;
     }
     &__description {
-      font-size: 14px;
+      font-size: $font-size-medium;
       margin-top: 12px;
+      font-family: $font-josefin;
+      font-weight: $font-weight-light;
     }
   }
 }
